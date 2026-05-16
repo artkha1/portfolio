@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artem Khaiet — Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav id="main-nav"></nav>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="hero-grid"></div>
+  <p class="hero-eyebrow">Portfolio</p>
+  <h1>Data, systems, <em>and everything between.</em></h1>
+  <p class="hero-desc">CS student at UIUC with a focus on data analytics and engineering — but equally comfortable building full-stack apps, running statistical models, and designing end-to-end pipelines.</p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn btn-primary">View Projects</a>
+    <a href="#about" class="btn btn-secondary">About Me</a>
+  </div>
+</header>
+
+<!-- ── PROJECTS ── -->
+<section id="projects" style="max-width:1200px;padding-top:2rem;">
+  <div class="section-header">
+    <h2>Selected Projects</h2>
+    <span class="section-label">7 projects</span>
+  </div>
+
+  <!-- Filter bar -->
+  <div class="filter-bar" id="filter-bar">
+    <button class="filter-btn active" data-tag="All">All</button>
+  </div>
+
+  <!-- Grid -->
+  <div class="projects-grid" id="projects-grid"></div>
+
+  <!-- Other projects note -->
+  <div class="other-projects" style="margin-top:2.5rem;" id="other-projects-note"></div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-header">
+    <h2>About Me</h2>
+    <span class="section-label">Background</span>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a Computer Science student at the University of Illinois at Urbana-Champaign, with a focus on data analytics, data engineering, and software development. I enjoy working at the intersection of building things that work and understanding what the data says.</p>
+      <p>My project work spans the full spectrum: from polished Tableau dashboards for a health nonprofit in Haiti, to deploying Flask web apps on cloud infrastructure, to writing rigorous statistical analyses in R. I'm particularly drawn to projects where engineering and analytical thinking have to work together.</p>
+      <p>I'm most interested in data engineering, data science, and backend software roles — but I've built enough full-stack web projects to be comfortable throughout the stack.</p>
+      <div class="about-interests">
+        <span class="tag-chip">Data Engineering</span>
+        <span class="tag-chip">Data Analytics</span>
+        <span class="tag-chip">Machine Learning</span>
+        <span class="tag-chip">Backend Development</span>
+        <span class="tag-chip">Statistical Modeling</span>
+        <span class="tag-chip">SQL & Databases</span>
+        <span class="tag-chip">Python</span>
+        <span class="tag-chip">R</span>
+      </div>
+    </div>
+    <div class="about-stats">
+      <div class="stat-row">
+        <span class="stat-num">7</span>
+        <span class="stat-desc">featured projects spanning data analytics, engineering, and software development</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-num">3</span>
+        <span class="stat-desc">internship & collaborative projects including a nonprofit in Haiti</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-num">5</span>
+        <span class="stat-desc">sports leagues analyzed in a personal data project</span>
+      </div>
+      <div class="stat-row" style="border-left-color: var(--gold);">
+        <span class="stat-num" style="color:var(--gold);">🏆</span>
+        <span class="stat-desc">2022 Illinois 9th District Congressional App Challenge winner</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="main-footer" style="max-width:none;"></footer>
+
+<script src="js/data.js"></script>
+<script>
+  // ── Collect all unique tags ──
+  const ALL_TAGS = ['All'];
+  PROJECTS.forEach(p => p.tags.forEach(t => { if (!ALL_TAGS.includes(t)) ALL_TAGS.push(t); }));
+
+  // ── Render filter buttons ──
+  const filterBar = document.getElementById('filter-bar');
+  ALL_TAGS.forEach(tag => {
+    if (tag === 'All') return; // already added in HTML
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.dataset.tag = tag;
+    btn.textContent = tag;
+    filterBar.appendChild(btn);
+  });
+
+  // ── Render project cards ──
+  function renderCards(activeTag) {
+    const grid = document.getElementById('projects-grid');
+    grid.innerHTML = '';
+    const filtered = activeTag === 'All' ? PROJECTS : PROJECTS.filter(p => p.tags.includes(activeTag));
+    filtered.forEach(p => {
+      const card = document.createElement('a');
+      card.className = 'project-card';
+      card.href = `projects/${p.id}.html`;
+
+      const badgeClass = p.badge === 'web' ? 'badge-web' : p.badge === 'award' ? 'badge-award' : 'badge-data';
+
+      card.innerHTML = `
+        <div class="card-meta">
+          <span class="card-num">${p.num}</span>
+          <span class="card-badge ${badgeClass}">${p.badgeLabel}</span>
+        </div>
+        <div class="card-title">${p.title}</div>
+        <div class="card-desc">${p.desc}</div>
+        <div class="card-tags">
+          ${p.tags.map(t => `<span class="card-tag">${t}</span>`).join('')}
+        </div>
+        <span class="card-arrow">${ICONS.arrow}</span>
+      `;
+      grid.appendChild(card);
+    });
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `<div style="padding:3rem;color:var(--text-dim);font-family:var(--mono);font-size:0.8rem;background:var(--bg);">No projects match this filter.</div>`;
+    }
+  }
+
+  // ── Filter click handler ──
+  filterBar.addEventListener('click', e => {
+    if (!e.target.classList.contains('filter-btn')) return;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    renderCards(e.target.dataset.tag);
+  });
+
+  // ── Other projects note ──
+  document.getElementById('other-projects-note').innerHTML = `
+    <p>These are selected highlights — but there's more to explore. My <a href="https://github.com/artkha1" target="_blank">GitHub</a> includes older and simpler projects not featured here, such as:</p>
+    <div class="other-links">
+      <a class="other-link" href="https://github.com/artkha1/pocketConstitution" target="_blank">
+        <span class="award-mark">🏆</span> Pocket Constitution (2022 Congressional App Challenge Winner)
+      </a>
+      <a class="other-link" href="https://github.com/artkha1/malloc_visualizer" target="_blank">
+        ⬜ Malloc Visualizer (HackIllinois 2026)
+      </a>
+      <a class="other-link" href="https://github.com/artkha1/scholarship-dates" target="_blank">
+        📅 Scholarship Dates → Google Calendar Script
+      </a>
+    </div>
+  `;
+
+  // ── Init ──
+  buildNav();
+  buildFooter();
+  renderCards('All');
+</script>
+</body>
+</html>

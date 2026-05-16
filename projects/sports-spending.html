@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Spending Analysis — Artem Khaiet</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="project-page">
+
+<nav id="main-nav"></nav>
+
+<div class="project-hero">
+  <div class="project-breadcrumb">
+    <a href="../index.html">Portfolio</a>
+    <span>/</span>
+    <span>Sports Spending Analysis</span>
+  </div>
+  <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;color:var(--text-dim);">06</span>
+  <h1>Sports Spending Analysis</h1>
+  <p class="lead">Does money buy success in sports? Scraped and analyzed payroll and transfer data across 7 major leagues (EPL, Serie A, MLS, NFL, MLB, NBA, NHL) to compute a composite success metric and measure Pearson correlation with team spending.</p>
+  <div class="project-meta-row">
+    <div class="meta-item">
+      <div class="meta-label">Organization</div>
+      <div class="meta-value">Personal Project</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Category</div>
+      <div class="meta-value">Data Analysis</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Tags</div>
+      <div class="meta-tags"><span class="card-tag" style="border-radius:999px;">Python</span><span class="card-tag" style="border-radius:999px;">Visualization</span><span class="card-tag" style="border-radius:999px;">Web Scraping</span><span class="card-tag" style="border-radius:999px;">Statistics</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="project-body">
+  <div class="project-content">
+    <h2>Background</h2>
+    <p>Personally motivated by debates about whether wealth determines success in sports. The project spans 5 different sports and 7 leagues to test whether the relationship holds universally or varies by sport structure and salary cap rules.</p>
+
+    <h2>Objective</h2>
+    <p>Scrape payroll and transfer spending data for teams across 7 major leagues. Design a composite success metric covering both regular season and playoff performance. Visualize and statistically test the correlation between spending and success in each league.</p>
+
+    <h2>Outcome</h2>
+    <p>A comparative analysis revealing that the money-to-success relationship varies significantly by league structure — salary cap leagues show weaker correlations than open-market leagues. Findings documented with full methodology in an accompanying report.</p>
+  </div>
+
+  <div class="project-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">Concepts &amp; Skills</div>
+      <div class="skill-list">
+        <div class="skill-item">Web scraping with BeautifulSoup</div><div class="skill-item">Data wrangling across heterogeneous sources</div><div class="skill-item">Custom success metric design (regular season + playoffs)</div><div class="skill-item">Pearson correlation analysis</div><div class="skill-item">Multi-panel comparative visualization</div><div class="skill-item">Cross-sport methodology design</div>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-title">Tools Used</div>
+      <div class="tool-list">
+        <span class="tool-pill">Python</span><span class="tool-pill">pandas</span><span class="tool-pill">BeautifulSoup</span><span class="tool-pill">matplotlib</span><span class="tool-pill">numpy</span><span class="tool-pill">Jupyter Notebooks</span>
+      </div>
+    </div>
+    <div class="sidebar-card"><div class="sidebar-title">Links</div><div class="project-links"><a class="proj-link-btn" href="https://github.com/artkha1/sportsSpending" target="_blank"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub</a></div></div>
+  </div>
+</div>
+
+<footer id="main-footer" style="max-width:none;margin-top:4rem;"></footer>
+
+<script src="../js/data.js"></script>
+<script>
+  buildNav();
+  buildFooter();
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Picker — Artem Khaiet</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="project-page">
+
+<nav id="main-nav"></nav>
+
+<div class="project-hero">
+  <div class="project-breadcrumb">
+    <a href="../index.html">Portfolio</a>
+    <span>/</span>
+    <span>College Picker</span>
+  </div>
+  <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;color:var(--text-dim);">02</span>
+  <h1>College Picker</h1>
+  <p class="lead">Full-stack web app that matches users to colleges based on weighted preferences. Evolved through three complete iterations — from a first internship prototype on Azure, to a team class project on Google Cloud, to a cleaner solo production version on Supabase.</p>
+  <div class="project-meta-row">
+    <div class="meta-item">
+      <div class="meta-label">Organization</div>
+      <div class="meta-value">Internship @ Aneyeon, Inc. → CS 411 (UIUC) → Personal Project</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Category</div>
+      <div class="meta-value">Web App</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Tags</div>
+      <div class="meta-tags"><span class="card-tag" style="border-radius:999px;">Python</span><span class="card-tag" style="border-radius:999px;">Web</span><span class="card-tag" style="border-radius:999px;">Databases</span><span class="card-tag" style="border-radius:999px;">SQL</span><span class="card-tag" style="border-radius:999px;">Cloud</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="project-body">
+  <div class="project-content">
+    <h2>Background</h2>
+    <p>Built during a first internship at Aneyeon, Inc., a local custom software development company. The project was personally motivated — the college application process is overwhelming, and a weighted-preference recommender seemed like a genuinely useful tool. Two years later, it was adapted and expanded for CS 411 (Database Systems) at UIUC as a team project, with heavier SQL requirements. It was later rewritten solo as a cleaner personal project.</p>
+
+    <h2>Objective</h2>
+    <p>Ask users a series of questions about college preferences (state, size, religious affiliation, test scores, etc.) and how important each criterion is to them. Generate a ranked top-5 college list based on weighted preferences, with full detail pages for each match.</p>
+
+    <h2>Outcome</h2>
+    <p>A live, deployed web application demonstrating the full product lifecycle — from intern prototype to a production-ready personal project. Currently hosted on Google Cloud Run with a PostgreSQL database on Supabase.</p>
+  </div>
+
+  <div class="project-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">Concepts &amp; Skills</div>
+      <div class="skill-list">
+        <div class="skill-item">Full-stack web development (Flask)</div><div class="skill-item">Relational database design and schema evolution</div><div class="skill-item">SQL stored procedures, triggers, constraints, and indices</div><div class="skill-item">REST API integration (CollegeScorecard API)</div><div class="skill-item">Cloud deployment (Azure → Google Cloud Run → Supabase)</div><div class="skill-item">Form validation with WTForms</div><div class="skill-item">Data wrangling and normalization with pandas</div><div class="skill-item">Collaborative development and code review</div>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-title">Tools Used</div>
+      <div class="tool-list">
+        <span class="tool-pill">Python Flask</span><span class="tool-pill">PostgreSQL</span><span class="tool-pill">Supabase</span><span class="tool-pill">Google Cloud Run</span><span class="tool-pill">Microsoft Azure</span><span class="tool-pill">Python WTForms</span><span class="tool-pill">Bulma CSS</span><span class="tool-pill">CollegeScorecard API</span><span class="tool-pill">pandas</span>
+      </div>
+    </div>
+    <div class="sidebar-card"><div class="sidebar-title">Links</div><div class="project-links"><a class="proj-link-btn" href="https://collegepicker-urf3zp23ga-uc.a.run.app/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" stroke-linecap="round" stroke-linejoin="round"/></svg> Live Demo</a><a class="proj-link-btn" href="https://github.com/artkha1/collegePicker" target="_blank"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub</a></div></div>
+  </div>
+</div>
+
+<footer id="main-footer" style="max-width:none;margin-top:4rem;"></footer>
+
+<script src="../js/data.js"></script>
+<script>
+  buildNav();
+  buildFooter();
+</script>
+</body>
+</html>

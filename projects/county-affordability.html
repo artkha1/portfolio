@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>County Affordability Analysis — Artem Khaiet</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="project-page">
+
+<nav id="main-nav"></nav>
+
+<div class="project-hero">
+  <div class="project-breadcrumb">
+    <a href="../index.html">Portfolio</a>
+    <span>/</span>
+    <span>County Affordability Analysis</span>
+  </div>
+  <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;color:var(--text-dim);">05</span>
+  <h1>County Affordability Analysis</h1>
+  <p class="lead">Rigorous applied regression study investigating what county-level factors predict housing cost-to-income ratios across 2,762 U.S. counties — comparing OLS, ridge, and LASSO models with full diagnostics and interaction analysis.</p>
+  <div class="project-meta-row">
+    <div class="meta-item">
+      <div class="meta-label">Organization</div>
+      <div class="meta-value">STAT 420 — Methods of Applied Statistics, UIUC</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Category</div>
+      <div class="meta-value">Statistical Analysis</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Tags</div>
+      <div class="meta-tags"><span class="card-tag" style="border-radius:999px;">R</span><span class="card-tag" style="border-radius:999px;">Statistics</span><span class="card-tag" style="border-radius:999px;">School Project</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="project-body">
+  <div class="project-content">
+    <h2>Background</h2>
+    <p>Completed for STAT 420 (Methods of Applied Statistics) at UIUC. Dataset sourced from Kaggle, containing quality-of-life metrics across U.S. counties compiled from the Census Bureau, EPA, and USDA. The response variable is the mean cost-to-income ratio (AVG C2I) per county as of 2022.</p>
+
+    <h2>Objective</h2>
+    <p>Investigate which county-level variables most influence housing affordability using rigorous linear regression methodology — comparing multiple model families, diagnosing assumption violations, and arriving at a defensible final model with interpretable coefficients.</p>
+
+    <h2>Outcome</h2>
+    <p>Final model achieved adjusted R² ≈ 0.51. Key findings: unemployment rate, state fixed effects, and student-to-teacher rank are the strongest predictors. Significant locale × unemployment interaction — the relationship between unemployment and affordability differs substantially between urban and rural counties.</p>
+  </div>
+
+  <div class="project-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">Concepts &amp; Skills</div>
+      <div class="skill-list">
+        <div class="skill-item">Ordinary least squares (OLS) regression</div><div class="skill-item">Ridge and LASSO regularization</div><div class="skill-item">Exploratory data analysis (EDA)</div><div class="skill-item">Residual analysis and heteroscedasticity diagnostics</div><div class="skill-item">Stepwise model selection (AIC/BIC)</div><div class="skill-item">ANOVA and partial F-tests</div><div class="skill-item">Variable transformations (Box-Cox)</div><div class="skill-item">Interaction term modeling</div><div class="skill-item">Multicollinearity handling (VIF)</div><div class="skill-item">Shapiro-Wilk normality testing</div><div class="skill-item">Interpretation of fixed effects with 51 state levels</div>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-title">Tools Used</div>
+      <div class="tool-list">
+        <span class="tool-pill">R</span><span class="tool-pill">R Markdown</span><span class="tool-pill">tidyverse</span><span class="tool-pill">ggplot2</span><span class="tool-pill">MASS</span><span class="tool-pill">car</span><span class="tool-pill">glmnet</span>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<footer id="main-footer" style="max-width:none;margin-top:4rem;"></footer>
+
+<script src="../js/data.js"></script>
+<script>
+  buildNav();
+  buildFooter();
+</script>
+</body>
+</html>
