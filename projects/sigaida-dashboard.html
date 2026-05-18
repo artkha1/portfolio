@@ -59,7 +59,7 @@
       </iframe>
     </div>
 
-    <h2>Screenshots</h2>
+    <h2>Screenshots <span style="font-family:var(--mono);font-size:0.75rem;font-weight:400;color:var(--text-dim);letter-spacing:0.06em;margin-left: 0.5rem">— click to enlarge</span></h2>
     <div id="gallery" style="position:relative;">
       <div id="gallery-track" style="overflow:hidden;">
         <div id="gallery-slides">
@@ -105,6 +105,12 @@
         current = (n + slides.length) % slides.length;
         slides[current].style.display = 'block';
         counter.textContent = (current + 1) + ' / ' + slides.length;
+        document.querySelectorAll('.gallery-slide img').forEach(img => {
+        img.onclick = () => {
+          document.getElementById('lightbox-img').src = img.src;
+          document.getElementById('lightbox').classList.add('active');
+        };
+      });
       }
       function galleryNav(dir) { showSlide(current + dir); }
       showSlide(0);
@@ -135,5 +141,8 @@
   buildNav();
   buildFooter();
 </script>
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+  <img id="lightbox-img" src="" alt="" />
+</div>
 </body>
 </html>

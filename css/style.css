@@ -499,6 +499,7 @@ footer {
   width: 100%;
   border: 1px solid var(--border);
   display: block;
+  cursor: zoom-in;
 }
 .gallery-slide figcaption {
   font-family: var(--mono);
@@ -521,6 +522,22 @@ footer {
 .gallery-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border: 1px solid var(--border);
 }
 
 /* ── HIDDEN ── */
