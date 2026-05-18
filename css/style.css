@@ -11,6 +11,8 @@
   --accent: #4fffb0;
   --accent2: #ff6b6b;
   --accent3: #a78bfa;
+  --accent4: #60c8f5;
+  --accent5: #ff9966;
   --gold: #f5c842;
   --link: #4fffb0;
   --card-hover: #1e2333;
@@ -97,6 +99,7 @@ nav {
     linear-gradient(90deg, rgba(79,255,176,0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+  pointer-events: none;
 }
 .hero-eyebrow {
   font-family: var(--mono);
@@ -275,6 +278,8 @@ section { padding: 5rem 3rem; max-width: 1200px; margin: 0 auto; }
   border-radius: 999px;
 }
 .badge-data { border: 1px solid rgba(79,255,176,0.3); color: var(--accent); }
+.badge-datasci { border: 1px solid rgba(96,200,245,0.3); color: var(--accent4); }
+.badge-viz { border: 1px solid rgba(255,153,102,0.3); color: var(--accent5); }
 .badge-web { border: 1px solid rgba(167,139,250,0.3); color: var(--accent3); }
 .badge-award { border: 1px solid rgba(245,200,66,0.3); color: var(--gold); }
 .card-title {

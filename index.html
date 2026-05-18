@@ -13,9 +13,9 @@
 <!-- ── HERO ── -->
 <header class="hero">
   <div class="hero-grid"></div>
-  <p class="hero-eyebrow">Portfolio</p>
-  <h1>Data, systems, <em>and everything between.</em></h1>
-  <p class="hero-desc">CS student at UIUC with a focus on data analytics and engineering — but equally comfortable building full-stack apps, running statistical models, and designing end-to-end pipelines.</p>
+  <p class="hero-eyebrow">Artem Khaiet — Portfolio</p>
+  <h1>Designing Software Around Real-World Data</h1>
+  <p class="hero-desc">CS student at the University of Illinois Urbana-Champaign exploring the intersection of software engineering, analytics, and scalable data systems to create data-driven impact.</p>
   <div class="hero-cta">
     <a href="#projects" class="btn btn-primary">View Projects</a>
     <a href="#about" class="btn btn-secondary">About Me</a>
@@ -50,13 +50,13 @@
   <div class="about-grid">
     <div class="about-text">
       <p>I'm a Computer Science student at the University of Illinois at Urbana-Champaign, with a focus on data analytics, data engineering, and software development. I enjoy working at the intersection of building things that work and understanding what the data says.</p>
-      <p>My project work spans the full spectrum: from polished Tableau dashboards for a health nonprofit in Haiti, to deploying Flask web apps on cloud infrastructure, to writing rigorous statistical analyses in R. I'm particularly drawn to projects where engineering and analytical thinking have to work together.</p>
-      <p>I'm most interested in data engineering, data science, and backend software roles — but I've built enough full-stack web projects to be comfortable throughout the stack.</p>
+      <p>My experience spans software engineering, geospatial analytics, cloud infrastructure, and data-intensive applications. At NASA Jet Propulsion Laboratory, I worked on mission support tools and cloud-based data systems for the SWOT satellite mission, contributing to Python development, infrastructure automation, and performance optimization. At University of Chicago Urban Labs, I developed analytical and geospatial workflows for large public-sector datasets, combining data engineering, visualization, and reporting to support research initiatives. Across these experiences, I've become interested in building reliable systems around complex real-world data.</p>
+      <p>Outside of internships and coursework, I enjoy creating projects that sit somewhere between engineering and experimentation, whether that means building interactive tools, exploring new technologies, or finding cleaner ways to organize and visualize information. I’m particularly drawn to projects where software can simplify complicated processes, support better decisions, or make technical ideas more accessible to people.</p>
       <div class="about-interests">
         <span class="tag-chip">Data Engineering</span>
         <span class="tag-chip">Data Analytics</span>
         <span class="tag-chip">Machine Learning</span>
-        <span class="tag-chip">Backend Development</span>
+        <span class="tag-chip">Software Development</span>
         <span class="tag-chip">Statistical Modeling</span>
         <span class="tag-chip">SQL & Databases</span>
         <span class="tag-chip">Python</span>
@@ -66,19 +66,19 @@
     <div class="about-stats">
       <div class="stat-row">
         <span class="stat-num">7</span>
-        <span class="stat-desc">featured projects spanning data analytics, engineering, and software development</span>
+        <span class="stat-desc">featured projects spanning data analytics, engineering, cloud, and software development</span>
       </div>
       <div class="stat-row">
-        <span class="stat-num">3</span>
-        <span class="stat-desc">internship & collaborative projects including a nonprofit in Haiti</span>
+        <span class="stat-num">4</span>
+        <span class="stat-desc">internship experiences, including at NASA JPL and UChicago Urban Labs</span>
       </div>
       <div class="stat-row">
-        <span class="stat-num">5</span>
-        <span class="stat-desc">sports leagues analyzed in a personal data project</span>
+        <span class="stat-num">∞</span>
+        <span class="stat-desc">tabs opened while debugging (estimated)</span>
       </div>
       <div class="stat-row" style="border-left-color: var(--gold);">
         <span class="stat-num" style="color:var(--gold);">🏆</span>
-        <span class="stat-desc">2022 Illinois 9th District Congressional App Challenge winner</span>
+        <span class="stat-desc">Winner of the 2022 Congressional App Challenge in <a href="https://www.congressionalappchallenge.us/22-IL09" target="_blank">Illinois 9th District</a> and recipient of the 2023 USGIF GDIT <a href="https://usgif.org/2023-usgif-scholarship-awardees/#artem-khaiet" target="_blank">Horizons Scholarship</a>, alongside $60K+ in other scholarships and awards.</span>
       </div>
     </div>
   </div>
@@ -113,7 +113,8 @@
       card.className = 'project-card';
       card.href = `projects/${p.id}.html`;
 
-      const badgeClass = p.badge === 'web' ? 'badge-web' : p.badge === 'award' ? 'badge-award' : 'badge-data';
+      const badgeMap = { web: 'badge-web', award: 'badge-award', viz: 'badge-viz', datasci: 'badge-datasci' };
+      const badgeClass = badgeMap[p.badge] || 'badge-data';
 
       card.innerHTML = `
         <div class="card-meta">

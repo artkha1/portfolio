@@ -9,38 +9,14 @@ const ICONS = {
 // ── Project data ──
 const PROJECTS = [
   {
-    id: 'child-violence-dashboard',
-    num: '01',
-    title: 'Child Violence Dashboard',
-    badge: 'data',
-    badgeLabel: 'Visualization',
-    org: 'Haitian Global Health Alliance (Internship)',
-    desc: 'Interactive Tableau dashboard visualizing survey data on attitudes toward violence against children in Haiti — before and after an educational intervention. Segmented by gender, profession, and violence type.',
-    tags: ['Python', 'Visualization', 'Tableau', 'Nonprofit'],
-    links: {
-      live: 'https://public.tableau.com/app/profile/your-profile/viz/HaitiFinalDashboard/EmotionalViolenceDashboard',
-    },
-    skills: [
-      'Data cleaning & transformation in Google Sheets',
-      'Dashboard design with interactive filters',
-      'Pre/post comparison analysis',
-      'Segmentation by demographic groups',
-      'Tableau calculated fields and parameters',
-    ],
-    tools: ['Tableau Public', 'Google Sheets'],
-    background: `The Haitian Global Health Alliance is a nonprofit delivering critical healthcare services and social support to low-income Haitians. To combat violence against children, HGHA developed an educational program for Haitian men and women across various professions.`,
-    objective: `Given survey data on attitudes toward violence against children before and after participating in the educational program, visualize trends in the percentage of correct ("true") responses. Group data by respondents' gender, profession, and violence type. Create interactive dashboards for each violence type, plus three additional charts with interactive filters.`,
-    outcome: `Produced a fully interactive Tableau Public dashboard suite covering multiple violence categories, enabling HGHA staff to quickly identify which groups showed the most improvement and which needed additional outreach.`,
-  },
-  {
     id: 'college-picker',
-    num: '02',
+    num: '01',
     title: 'College Picker',
     badge: 'web',
     badgeLabel: 'Web App',
     org: 'Internship @ Aneyeon, Inc. → CS 411 (UIUC) → Personal',
     desc: 'Full-stack web app that takes user preferences (state, size, test scores, religious affiliation, etc.) and generates a personalized top-5 college list, pulling live data from the CollegeScorecard API.',
-    tags: ['Python', 'Web', 'Databases', 'SQL', 'Cloud'],
+    tags: ['Python', 'Web', 'Databases', 'SQL', 'Cloud', 'Deployed'],
     links: {
       live: 'https://collegepicker-urf3zp23ga-uc.a.run.app/',
       repo: 'https://github.com/artkha1/collegePicker',
@@ -61,13 +37,13 @@ const PROJECTS = [
   },
   {
     id: 'sigaida-dashboard',
-    num: '03',
+    num: '02',
     title: 'SIGAIDA Campus Environment Dashboard',
-    badge: 'data',
-    badgeLabel: 'Data Engineering',
+    badge: 'datasci',
+    badgeLabel: 'Data Science',
     org: 'ACM SIGAIDA @ UIUC',
     desc: 'Comprehensive environmental monitoring dashboard for UIUC campus — integrating real-time air quality, weather, satellite vegetation (NDVI), transit, and ML-powered anomaly detection into a single Next.js platform.',
-    tags: ['Python', 'ML/AI', 'Visualization', 'Databases', 'Web', 'Data Engineering'],
+    tags: ['Python', 'ML/AI', 'Visualization', 'Databases', 'Web'],
     links: {
       repo: 'https://github.com/artkha1/SIGAIDA-CAMPUS-ENERGY',
     },
@@ -88,13 +64,13 @@ const PROJECTS = [
   },
   {
     id: 'calorie-tracker',
-    num: '04',
+    num: '03',
     title: 'Calorie Tracker',
     badge: 'web',
     badgeLabel: 'Web App',
     org: 'CS 222 (UIUC) → Personal',
     desc: 'Flask web app for tracking daily macros with natural language food logging ("2 eggs and a slice of toast"), powered by the Gemini AI API and backed by 600,000+ USDA foods. Includes CI/CD and is live on Render.',
-    tags: ['Python', 'Web', 'ML/AI', 'Databases', 'Cloud'],
+    tags: ['Python', 'Web', 'ML/AI', 'Databases', 'Cloud', 'Deployed'],
     links: {
       live: 'https://calorie-tracker-ncz7.onrender.com/',
       repo: 'https://github.com/artkha1/calorie_tracker',
@@ -115,6 +91,31 @@ const PROJECTS = [
     outcome: `A live, deployed web application with a full CI/CD pipeline: every push to main runs the pytest suite, and if tests pass, triggers automatic redeployment on Render. Demonstrates the complete software engineering lifecycle including testing, automation, and production deployment.`,
   },
   {
+    id: 'child-violence-dashboard',
+    num: '04',
+    title: 'Child Violence Dashboard',
+    badge: 'viz',
+    badgeLabel: 'Visualization',
+    org: 'Haitian Global Health Alliance (Internship)',
+    desc: 'Interactive Tableau dashboard visualizing survey data on attitudes toward violence against children in Haiti — before and after an educational intervention. Segmented by gender, profession, and violence type.',
+    tags: ['Visualization'],
+    links: {
+      live: 'https://public.tableau.com/app/profile/your-profile/viz/HaitiFinalDashboard/EmotionalViolenceDashboard',
+    },
+    skills: [
+      'Data cleaning & transformation in Google Sheets',
+      'Dashboard design with interactive filters',
+      'Pre/post comparison analysis',
+      'Segmentation by demographic groups',
+      'Tableau calculated fields and parameters',
+    ],
+    tools: ['Tableau Public', 'Google Sheets'],
+    background: `The Haitian Global Health Alliance is a nonprofit delivering critical healthcare services and social support to low-income Haitians. To combat violence against children, HGHA developed an educational program for Haitian men and women across various professions.`,
+    objective: `Given survey data on attitudes toward violence against children before and after participating in the educational program, visualize trends in the percentage of correct ("true") responses. Group data by respondents' gender, profession, and violence type. Create interactive dashboards for each violence type, plus three additional charts with interactive filters.`,
+    outcome: `Produced a fully interactive Tableau Public dashboard suite covering multiple violence categories, enabling HGHA staff to quickly identify which groups showed the most improvement and which needed additional outreach.`,
+  },
+  
+  {
     id: 'county-affordability',
     num: '05',
     title: 'County Affordability Analysis',
@@ -122,7 +123,7 @@ const PROJECTS = [
     badgeLabel: 'Statistical Analysis',
     org: 'STAT 420 (UIUC)',
     desc: 'Rigorous applied regression study investigating which county-level factors (unemployment, crime, water quality, education) best predict housing cost-to-income ratios across 2,762 U.S. counties.',
-    tags: ['R', 'Statistics', 'School Project'],
+    tags: ['R', 'Statistics and Analytics'],
     links: {},
     skills: [
       'Ordinary least squares regression',
@@ -149,7 +150,7 @@ const PROJECTS = [
     badgeLabel: 'Data Analysis',
     org: 'Personal Project',
     desc: 'Cross-sport analysis of whether payroll and transfer spending predicts team success across 7 major leagues (EPL, Serie A, MLS, NFL, MLB, NBA, NHL), using web-scraped data and Pearson\'s correlation.',
-    tags: ['Python', 'Visualization', 'Web Scraping', 'Statistics'],
+    tags: ['Python', 'Visualization', 'Web Scraping', 'Statistics and Analytics'],
     links: {
       repo: 'https://github.com/artkha1/sportsSpending',
     },
@@ -174,7 +175,7 @@ const PROJECTS = [
     badgeLabel: 'Data Analysis',
     org: 'Google Data Analytics Certificate (Capstone)',
     desc: 'Capstone case study comparing usage patterns between casual riders and annual members of a Chicago bike-sharing service, culminating in data-driven marketing recommendations.',
-    tags: ['R', 'Visualization', 'Statistics'],
+    tags: ['R', 'Visualization', 'Statistics and Analytics'],
     links: {
       live: 'https://www.kaggle.com/code/artemkhaiet/cyclistic-analysis',
     },
