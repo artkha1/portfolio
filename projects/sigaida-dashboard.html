@@ -38,26 +38,90 @@
 <div class="project-body">
   <div class="project-content">
     <h2>Background</h2>
-    <p>Originally developed as part of a team at UIUC's ACM SIGAIDA (special interest group for AI and data analytics), with primary responsibility for data collection and database management. After the project's lifecycle ended, the repo was forked and individually polished — integrating ML models developed by another team member, replacing placeholder content, and improving the overall UI.</p>
+    <p>Originally developed as part of a team at UIUC's ACM SIGAIDA (Special Interest Group for AI and Data Analytics), with primary responsibility for data collection and database management. After the project's lifecycle ended, the repo was forked and individually polished by integrating ML models developed by another team member, replacing placeholder content, and improving the overall UI.</p>
 
     <h2>Objective</h2>
-    <p>Build a comprehensive environmental monitoring platform for the UIUC campus, unifying air quality, weather, satellite vegetation data, and transit into a single dashboard — with machine learning anomaly detection and forecasting layered on top.</p>
+    <p>Build a comprehensive environmental monitoring platform for the UIUC campus, unifying air quality, weather, satellite vegetation data, and transit into a single dashboard, with machine learning anomaly detection and forecasting layered on top.</p>
 
     <h2>Outcome</h2>
-    <p>A full-stack data engineering project demonstrating the complete pipeline from raw API data to ML-powered insights. Covers real-time AQI for 6 pollutants, 16-day hourly weather forecasting, satellite NDVI at 100m resolution spanning 2016–2025, and live MTD bus stop visualization.</p>
+    <p>A full-stack data science project demonstrating the complete pipeline from raw API data to ML-powered insights. Covers real-time AQI for 6 pollutants, 16-day hourly weather forecasting, satellite NDVI at 100m resolution spanning 2016–2025, and live MTD bus stop visualization.</p>
+
+    <h2>Demo</h2>
+
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2rem;">
+      <iframe
+        src="https://www.youtube.com/embed/-lG3aNGBbnI?si=wf2JHQhOhAyPmjMk"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;">
+      </iframe>
+    </div>
+
+    <h2>Screenshots</h2>
+    <div id="gallery" style="position:relative;">
+      <div id="gallery-track" style="overflow:hidden;">
+        <div id="gallery-slides">
+          <figure class="gallery-slide">
+            <img src="assets/sigaida/Dashboard.png" alt="Dashboard overview" />
+            <figcaption>Dashboard — comprehensive overview of all campus metrics</figcaption>
+          </figure>
+          <figure class="gallery-slide">
+            <img src="assets/sigaida/AirQuality.png" alt="Air quality monitoring" />
+            <figcaption>Air Quality — real-time AQI tracking with PM2.5, NO₂, and O₃ measurements</figcaption>
+          </figure>
+          <figure class="gallery-slide">
+            <img src="assets/sigaida/Weather.png" alt="Weather monitoring" />
+            <figcaption>Weather — 16-day hourly forecasts and historical data</figcaption>
+          </figure>
+          <figure class="gallery-slide">
+            <img src="assets/sigaida/Vegetation.png" alt="NDVI vegetation analysis" />
+            <figcaption>Vegetation — satellite NDVI analysis with interactive 100m campus grid</figcaption>
+          </figure>
+          <figure class="gallery-slide">
+            <img src="assets/sigaida/Transit.png" alt="Transit system" />
+            <figcaption>Transit — MTD bus stops and routes on an interactive campus map</figcaption>
+          </figure>
+          <figure class="gallery-slide">
+            <img src="assets/sigaida/ML.png" alt="Machine learning predictions" />
+            <figcaption>ML Predictions — LSTM forecasting and anomaly detection for air quality</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:0.75rem;">
+        <button onclick="galleryNav(-1)" class="gallery-btn">← Prev</button>
+        <span id="gallery-counter" style="font-family:var(--mono);font-size:0.72rem;color:var(--text-dim);"></span>
+        <button onclick="galleryNav(1)" class="gallery-btn">Next →</button>
+      </div>
+    </div>
+
+    <script>
+      let current = 0;
+      const slides = document.querySelectorAll('.gallery-slide');
+      const counter = document.getElementById('gallery-counter');
+      function showSlide(n) {
+        slides.forEach(s => s.style.display = 'none');
+        current = (n + slides.length) % slides.length;
+        slides[current].style.display = 'block';
+        counter.textContent = (current + 1) + ' / ' + slides.length;
+      }
+      function galleryNav(dir) { showSlide(current + dir); }
+      showSlide(0);
+    </script>
   </div>
 
   <div class="project-sidebar">
     <div class="sidebar-card">
       <div class="sidebar-title">Concepts &amp; Skills</div>
       <div class="skill-list">
-        <div class="skill-item">ETL pipeline design and multi-source data collection</div><div class="skill-item">REST API integration (OpenAQ, Open-Meteo, MTD GTFS)</div><div class="skill-item">Google Earth Engine for satellite NDVI analysis</div><div class="skill-item">LSTM recurrent neural network for time-series forecasting</div><div class="skill-item">Anomaly detection for air quality records</div><div class="skill-item">Interactive geospatial mapping with Leaflet.js</div><div class="skill-item">Backend REST API design with FastAPI</div><div class="skill-item">Database schema design (SQLite)</div><div class="skill-item">Frontend development with Next.js and TypeScript</div>
+        <div class="skill-item">Multi-source data collection</div><div class="skill-item">REST API integration (OpenAQ, Open-Meteo, MTD GTFS)</div><div class="skill-item">Google Earth Engine for satellite NDVI analysis</div><div class="skill-item">LSTM recurrent neural network for time-series forecasting</div><div class="skill-item">Isolation forest anomaly detection for air quality records</div><div class="skill-item">Interactive geospatial mapping with Leaflet.js</div><div class="skill-item">Backend REST API design with FastAPI</div><div class="skill-item">Database schema design (SQLite)</div><div class="skill-item">Frontend development with Next.js and TypeScript</div>
       </div>
     </div>
     <div class="sidebar-card">
       <div class="sidebar-title">Tools Used</div>
       <div class="tool-list">
-        <span class="tool-pill">Next.js 14</span><span class="tool-pill">TypeScript</span><span class="tool-pill">Tailwind CSS</span><span class="tool-pill">FastAPI</span><span class="tool-pill">PyTorch</span><span class="tool-pill">SQLite</span><span class="tool-pill">Pandas</span><span class="tool-pill">Plotly.js</span><span class="tool-pill">Chart.js</span><span class="tool-pill">Leaflet</span><span class="tool-pill">Google Earth Engine</span><span class="tool-pill">OpenAQ API</span><span class="tool-pill">Open-Meteo API</span>
+        <span class="tool-pill">Next.js 14</span><span class="tool-pill">TypeScript</span><span class="tool-pill">Tailwind CSS</span><span class="tool-pill">FastAPI</span><span class="tool-pill">PyTorch</span><span class="tool-pill">SQLite</span><span class="tool-pill">Pandas</span><span class="tool-pill">Plotly.js</span><span class="tool-pill">Chart.js</span><span class="tool-pill">Leaflet</span><span class="tool-pill">Google Earth Engine</span><span class="tool-pill">OpenAQ API</span><span class="tool-pill">Open-Meteo API</span><span class="tool-pill">Google Earth Engine</span>
       </div>
     </div>
     <div class="sidebar-card"><div class="sidebar-title">Links</div><div class="project-links"><a class="proj-link-btn" href="https://github.com/artkha1/SIGAIDA-CAMPUS-ENERGY" target="_blank"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub</a></div></div>

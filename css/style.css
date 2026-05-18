@@ -495,6 +495,34 @@ footer {
 .proj-link-btn:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
 .proj-link-btn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
 
+.gallery-slide img {
+  width: 100%;
+  border: 1px solid var(--border);
+  display: block;
+}
+.gallery-slide figcaption {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: 0.6rem;
+  padding-left: 0.25rem;
+}
+.gallery-btn {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.35rem 0.85rem;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.gallery-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 /* ── HIDDEN ── */
 .hidden { display: none !important; }
 
