@@ -95,6 +95,9 @@
         <button onclick="galleryNav(1)" class="gallery-btn">Next →</button>
       </div>
     </div>
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
 
     <script>
       let current = 0;
@@ -141,8 +144,5 @@
   buildNav();
   buildFooter();
 </script>
-<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
-  <img id="lightbox-img" src="" alt="" />
-</div>
 </body>
 </html>

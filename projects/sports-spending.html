@@ -38,13 +38,92 @@
 <div class="project-body">
   <div class="project-content">
     <h2>Background</h2>
-    <p>Personally motivated by debates about whether wealth determines success in sports. The project spans 5 different sports and 7 leagues to test whether the relationship holds universally or varies by sport structure and salary cap rules.</p>
+    <p>I am a sports fan. And as many sports fans, I always lamented the fact that richer teams can simply afford better players and managers to stay on top. My dad, who is a Manchester City fan, would often respond to my accusations of his favorite team being an "oil club" by saying that City players and coaches are simply talented, and money is not always the decisive factor in determining who wins. This project is personally motivated by these debates about whether wealth determines success in sports.</p>
 
     <h2>Objective</h2>
-    <p>Scrape payroll and transfer spending data for teams across 7 major leagues. Design a composite success metric covering both regular season and playoff performance. Visualize and statistically test the correlation between spending and success in each league.</p>
+    <p>Scrape payroll and transfer spending data for teams across 5 different sports and 7 major leagues. Design a composite success metric covering both regular season and playoff performance. Visualize and statistically test the correlation between spending and success in each league, and assess whether the relationship holds universally or varies by sport structure and salary cap rules.</p>
 
     <h2>Outcome</h2>
-    <p>A comparative analysis revealing that the money-to-success relationship varies significantly by league structure — salary cap leagues show weaker correlations than open-market leagues. Findings documented with full methodology in an accompanying report.</p>
+    <p>Across 7 leagues, the relationship between spending and success varies dramatically by sport structure. Open markets and individual-heavy sports show strong correlations, while hard salary caps and team-oriented sports show near zero.</p>
+
+    <h2>Key Findings</h2>
+    <div class="finding">
+      <div class="finding-stat">European soccer — money matters most</div>
+      <p>EPL and Serie A show Pearson's correlations above 0.8 between payroll and both season points and playoff performance. With no meaningful salary cap, spending is nearly a prerequisite for success.</p>
+    </div>
+    <div class="finding">
+      <div class="finding-stat">MLS — the exception in soccer</div>
+      <p>Despite being the same sport, MLS shows a much weaker payroll correlation and near-zero transfer spending correlation — explained by the draft system, salary cap, and the league's lower global standing attracting fewer high-value transfers.</p>
+    </div>
+    <div class="finding">
+      <div class="finding-stat">NFL — essentially no correlation</div>
+      <p>The strictest salary cap of any North American league, combined with football's reliance on team coordination over individual star power and its short season, produces scatter plots that look nearly random.</p>
+    </div>
+    <div class="finding">
+      <div class="finding-stat">NBA — highest correlation in North America</div>
+      <p>Individual star player impact (LeBron, Curry) and a soft cap with numerous exceptions (Larry Bird Rule, Mid-Level Exception) make payroll a meaningful predictor of both regular season and playoff success.</p>
+    </div>
+    <div class="finding">
+      <div class="finding-stat">Counterintuitive playoff finding</div>
+      <p>In all leagues except NHL, the correlation between spending and playoff points is <em>higher</em> than with regular season performance — the opposite of what randomness in knockout tournaments would suggest.</p>
+    </div>
+
+    <h2>Screenshots <span style="font-family:var(--mono);font-size:0.75rem;font-weight:400;color:var(--text-dim);margin-left:0.5rem;">— click to enlarge</span></h2>
+      <div id="gallery" style="position:relative;">
+        <div id="gallery-track" style="overflow:hidden;">
+          <div id="gallery-slides">
+            <figure class="gallery-slide">
+              <img src="assets/sports-spending/EPLPayrollPoints.png" alt="EPL payroll vs season points" />
+              <figcaption>EPL — Payroll vs Season Points (r = 0.822): one of the strongest spending-success relationships across all leagues</figcaption>
+            </figure>
+            <figure class="gallery-slide">
+              <img src="assets/sports-spending/EPLPayrollTrophies.png" alt="EPL payroll vs playoff points" />
+              <figcaption>EPL — Payroll vs Playoff Points: exponential relationship, with top spenders dominating European competitions</figcaption>
+            </figure>
+            <figure class="gallery-slide">
+              <img src="assets/sports-spending/NFLWPCT.png" alt="NFL payroll vs winning percentage" />
+              <figcaption>NFL — Payroll vs Win Percentage: near-random scatter, reflecting the league's strict hard cap and team-dependent sport structure</figcaption>
+            </figure>
+            <figure class="gallery-slide">
+              <img src="assets/sports-spending/NBAPlayoffs.png" alt="NBA payroll vs playoff points" />
+              <figcaption>NBA — Payroll vs Playoff Points: highest correlation of any North American league (r = 0.708), driven by individual star player impact</figcaption>
+            </figure>
+            <figure class="gallery-slide">
+              <img src="assets/sports-spending/SERPayrollPoints.png" alt="Serie A payroll vs season points" />
+              <figcaption>Serie A — Payroll vs Season Points: logarithmic relationship suggesting diminishing returns at very high spending levels</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:0.75rem;">
+          <button onclick="galleryNav(-1)" class="gallery-btn">← Prev</button>
+          <span id="gallery-counter" style="font-family:var(--mono);font-size:0.72rem;color:var(--text-dim);"></span>
+          <button onclick="galleryNav(1)" class="gallery-btn">Next →</button>
+        </div>
+      </div>
+
+      <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+        <img id="lightbox-img" src="" alt="" />
+      </div>
+
+      <script>
+        let current = 0;
+        const slides = document.querySelectorAll('.gallery-slide');
+        const counter = document.getElementById('gallery-counter');
+        function showSlide(n) {
+          slides.forEach(s => s.style.display = 'none');
+          current = (n + slides.length) % slides.length;
+          slides[current].style.display = 'block';
+          counter.textContent = (current + 1) + ' / ' + slides.length;
+        }
+        function galleryNav(dir) { showSlide(current + dir); }
+        document.querySelectorAll('.gallery-slide img').forEach(img => {
+          img.onclick = () => {
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox').classList.add('active');
+          };
+        });
+        showSlide(0);
+      </script>
   </div>
 
   <div class="project-sidebar">
@@ -60,7 +139,19 @@
         <span class="tool-pill">Python</span><span class="tool-pill">pandas</span><span class="tool-pill">BeautifulSoup</span><span class="tool-pill">matplotlib</span><span class="tool-pill">numpy</span><span class="tool-pill">Jupyter Notebooks</span>
       </div>
     </div>
-    <div class="sidebar-card"><div class="sidebar-title">Links</div><div class="project-links"><a class="proj-link-btn" href="https://github.com/artkha1/sportsSpending" target="_blank"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub</a></div></div>
+  <div class="sidebar-card">
+  <div class="sidebar-title">Links</div>
+  <div class="project-links">
+    <a class="proj-link-btn" href="https://github.com/artkha1/sportsSpending" target="_blank">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      GitHub
+    </a>
+    <a class="proj-link-btn" href="assets/sports-spending/sports_spending_report.pdf" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      View or Download PDF Report
+    </a>
+  </div>
+</div>
   </div>
 </div>
 
