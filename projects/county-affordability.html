@@ -44,20 +44,55 @@
     <p>Investigate which county-level variables most influence housing affordability using rigorous linear regression methodology — comparing multiple model families, diagnosing assumption violations, and arriving at a defensible final model with interpretable coefficients.</p>
 
     <h2>Outcome</h2>
-    <p>Final model achieved adjusted R² ≈ 0.51. Key findings: unemployment rate, state fixed effects, and student-to-teacher rank are the strongest predictors. Significant locale × unemployment interaction — the relationship between unemployment and affordability differs substantially between urban and rural counties.</p>
+    <p>Final model achieved adjusted R² of 0.507 and LOOCV RMSE of 13.70, combining stepwise selection, a quadratic unemployment term, and locale interaction effects. OLS outperformed both LASSO and ridge, as expected given n = 2,762 with limited overfitting risk.</p>
+
+    <h2>Key Findings</h2>
+    <div class="finding">
+      <div class="finding-stat">Strongest predictor</div>
+      <p>Unemployment is by far the most significant variable — each 1pp increase is associated with ~7.4pp higher cost-to-income ratio, with a concave relationship that diminishes at high unemployment values.</p>
+    </div>
+    <div class="finding">
+      <div class="finding-stat">Urban vs. rural asymmetry</div>
+      <p>Urban core counties (Locale 11) show the steepest unemployment-affordability slope (~22.6). The effect is roughly halved in non-urban locales — mid-size cities add only ~11.6pp per unemployment point.</p>
+    </div>
+    <div class="finding">
+      <div class="finding-stat">School staffing as a proxy</div>
+      <p>Student-teacher rank is the second most consistent predictor — a 1,000-rank improvement in school staffing is associated with ~3.7pp lower AVG C2I, likely reflecting broader county wealth.</p>
+    </div>
+    <div class="finding">
+      <div class="finding-stat">Model fit</div>
+      <p>Adjusted R² ≈ 0.51 on the full dataset, rising to 0.59 when 116 influential outliers are removed — suggesting the model is conservative rather than overfitted.</p>
+    </div>
+    <div class="finding">
+      <div class="finding-stat">Notable outlier</div>
+      <p>Todd County, SD (AVG C2I = 287%) is the most extreme observation — a persistently impoverished, Native American-majority county where median income is $25,530 against a cost of living of $73,348.</p>
+    </div>
   </div>
 
   <div class="project-sidebar">
     <div class="sidebar-card">
       <div class="sidebar-title">Concepts &amp; Skills</div>
       <div class="skill-list">
-        <div class="skill-item">Ordinary least squares (OLS) regression</div><div class="skill-item">Ridge and LASSO regularization</div><div class="skill-item">Exploratory data analysis (EDA)</div><div class="skill-item">Residual analysis and heteroscedasticity diagnostics</div><div class="skill-item">Stepwise model selection (AIC/BIC)</div><div class="skill-item">ANOVA and partial F-tests</div><div class="skill-item">Variable transformations (Box-Cox)</div><div class="skill-item">Interaction term modeling</div><div class="skill-item">Multicollinearity handling (VIF)</div><div class="skill-item">Shapiro-Wilk normality testing</div><div class="skill-item">Interpretation of fixed effects with 51 state levels</div>
+        <div class="skill-item">Ordinary least squares (OLS) regression</div><div class="skill-item">Ridge and LASSO regularization</div><div class="skill-item">Data Cleaning</div><div class="skill-item">Exploratory data analysis (EDA)</div><div class="skill-item">Statistical Inference</div><div class="skill-item">Model Diagnostics (Residual analysis, Linearity, Heteroscedasticity, Normality, Multicollinearity and VIF)</div><div class="skill-item">Stepwise model selection (AIC/BIC)</div><div class="skill-item">ANOVA and partial F-tests</div><div class="skill-item">Variable transformations (Box-Cox, log, polynomial)</div><div class="skill-item">Interaction term modeling</div><div class="skill-item">Cross-Validation and Model Seletion</div><div class="skill-item">Outlier Detection and Handling (Cook's Distance, Leverage)</div>
       </div>
     </div>
     <div class="sidebar-card">
       <div class="sidebar-title">Tools Used</div>
       <div class="tool-list">
         <span class="tool-pill">R</span><span class="tool-pill">R Markdown</span><span class="tool-pill">tidyverse</span><span class="tool-pill">ggplot2</span><span class="tool-pill">MASS</span><span class="tool-pill">car</span><span class="tool-pill">glmnet</span>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-title">Links</div>
+      <div class="project-links">
+        <a class="proj-link-btn" href="https://rpubs.com/timkhaiet/county_analysis" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          View on RPubs
+        </a>
+        <a class="proj-link-btn" href="assets/county-affordability/STAT420Project.pdf" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          View or Download PDF
+        </a>
       </div>
     </div>
     
