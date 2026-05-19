@@ -7,7 +7,7 @@ Personal portfolio site built with vanilla HTML/CSS/JS. Hosted on GitHub Pages a
 1. [Child Violence Dashboard](projects/child-violence-dashboard.html) — Interactive Tableau dashboard for the Haitian Global Health Alliance
 2. [College Picker](projects/college-picker.html) — Weighted-preference college recommender, deployed on Google Cloud Run
 3. [SIGAIDA Campus Environment Dashboard](projects/sigaida-dashboard.html) — Full-stack environmental monitoring platform with LSTM forecasting
-4. [Calorie Tracker](projects/calorie-tracker.html) — Flask app with AI-powered natural language food logging and CI/CD
+4. [Calorie Tracker](projects/calorie-tracker.html) — Flask app with AI-powered natural language food logging and CI/CD, deployed on Render
 5. [County Affordability Analysis](projects/county-affordability.html) — Applied regression study across 2,762 U.S. counties in R
 6. [Sports Spending Analysis](projects/sports-spending.html) — Web-scraped payroll data vs. team success across 7 major sports leagues
 7. [Cyclistic Bike-Sharing Analysis](projects/bike-sharing.html) — Google Data Analytics certificate capstone in R
