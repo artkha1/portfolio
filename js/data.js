@@ -14,7 +14,7 @@ const PROJECTS = [
     title: 'College Picker',
     badge: 'web',
     badgeLabel: 'Web App',
-    desc: 'Full-stack web app that takes user preferences (state, size, test scores, religious affiliation, etc.) and generates a personalized top-5 college list, pulling live data from the CollegeScorecard API.',
+    desc: 'Full-stack web app that takes user preferences (state, size, test scores, religious affiliation, etc.) and generates a personalized top-20 college list, pulling live data from the CollegeScorecard API.',
     tags: ['Python', 'Web', 'Databases', 'SQL', 'Cloud', 'Deployed'],
   },
   {
