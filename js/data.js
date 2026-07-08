@@ -18,8 +18,17 @@ const PROJECTS = [
     tags: ['Python', 'Web', 'Databases', 'SQL', 'Cloud', 'Deployed'],
   },
   {
-    id: 'sigaida-dashboard',
+    id: 'strikematch',
     num: '02',
+    title: 'StrikeMatch',
+    badge: 'dataeng',
+    badgeLabel: 'Data Engineering',
+    desc: 'Full-stack data pipeline that correlates NASA FIRMS satellite fire detections with ACLED conflict events to surface confirmed strike activity, built with Python, PySpark, Databricks, and a live Leaflet dashboard.',
+    tags: ['Python', 'Web', 'Databases', 'ETL/ELT', 'Visualization', 'Geospatial', 'SQL', 'Cloud', 'Deployed'],
+  },
+  {
+    id: 'sigaida-dashboard',
+    num: '03',
     title: 'SIGAIDA Campus Environment Dashboard',
     badge: 'datasci',
     badgeLabel: 'Data Science',
@@ -28,7 +37,7 @@ const PROJECTS = [
   },
   {
     id: 'calorie-tracker',
-    num: '03',
+    num: '04',
     title: 'Calorie Tracker',
     badge: 'web',
     badgeLabel: 'Web App',
@@ -37,7 +46,7 @@ const PROJECTS = [
   },
   {
     id: 'child-violence-dashboard',
-    num: '04',
+    num: '05',
     title: 'Child Violence Dashboard',
     badge: 'viz',
     badgeLabel: 'Visualization',
@@ -47,7 +56,7 @@ const PROJECTS = [
   
   {
     id: 'county-affordability',
-    num: '05',
+    num: '06',
     title: 'County Affordability Analysis',
     badge: 'data',
     badgeLabel: 'Statistical Analysis',
@@ -56,7 +65,7 @@ const PROJECTS = [
   },
   {
     id: 'sports-spending',
-    num: '06',
+    num: '07',
     title: 'Sports Spending Analysis',
     badge: 'data',
     badgeLabel: 'Data Analysis',
@@ -65,7 +74,7 @@ const PROJECTS = [
   },
   {
     id: 'bike-sharing',
-    num: '07',
+    num: '08',
     title: 'Cyclistic Bike-Sharing Analysis',
     badge: 'data',
     badgeLabel: 'Data Analysis',
@@ -83,6 +92,7 @@ function buildNav(activePage) {
     <div class="nav-links">
       <a href="/portfolio/index.html#projects">Projects</a>
       <a href="/portfolio/index.html#about">About</a>
+      <a href="/portfolio/resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
     <div class="nav-social">
       <a href="https://github.com/artkha1" target="_blank" title="GitHub">${ICONS.github}</a>

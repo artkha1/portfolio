@@ -4,7 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Artem Khaiet — Portfolio</title>
+  <meta name="description" content="CS student at UIUC designing software around real-world data — full-stack apps, data engineering pipelines, and statistical analysis." />
+  <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
   <link rel="stylesheet" href="css/style.css" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Artem Khaiet — Portfolio" />
+  <meta property="og:description" content="CS student at UIUC designing software around real-world data — full-stack apps, data engineering pipelines, and statistical analysis." />
+  <meta property="og:url" content="https://artkha1.github.io/portfolio/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Artem Khaiet — Portfolio" />
+  <meta name="twitter:description" content="CS student at UIUC designing software around real-world data — full-stack apps, data engineering pipelines, and statistical analysis." />
 </head>
 <body>
 
@@ -26,7 +35,7 @@
 <section id="projects" style="max-width:1200px;padding-top:2rem;">
   <div class="section-header">
     <h2>Selected Projects</h2>
-    <span class="section-label">7 projects</span>
+    <span class="section-label">8 projects</span>
   </div>
 
   <!-- Filter bar -->
@@ -65,7 +74,7 @@
     </div>
     <div class="about-stats">
       <div class="stat-row">
-        <span class="stat-num">7</span>
+        <span class="stat-num">8</span>
         <span class="stat-desc">featured projects spanning data analytics, engineering, cloud, and software development</span>
       </div>
       <div class="stat-row">
@@ -113,7 +122,7 @@
       card.className = 'project-card';
       card.href = `projects/${p.id}.html`;
 
-      const badgeMap = { web: 'badge-web', award: 'badge-award', viz: 'badge-viz', datasci: 'badge-datasci' };
+      const badgeMap = { web: 'badge-web', award: 'badge-award', viz: 'badge-viz', datasci: 'badge-datasci', dataeng: 'badge-dataeng' };
       const badgeClass = badgeMap[p.badge] || 'badge-data';
 
       card.innerHTML = `

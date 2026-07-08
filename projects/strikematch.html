@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StrikeMatch — Artem Khaiet</title>
+  <meta name="description" content="Full-stack data pipeline that correlates NASA FIRMS satellite fire detections with ACLED conflict events to surface confirmed strike activity, built with Python, PySpark, Databricks, and a live Leaflet dashboard." />
+  <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="StrikeMatch — Artem Khaiet" />
+  <meta property="og:description" content="Full-stack data pipeline that correlates NASA FIRMS satellite fire detections with ACLED conflict events to surface confirmed strike activity, built with Python, PySpark, Databricks, and a live Leaflet dashboard." />
+  <meta property="og:url" content="https://artkha1.github.io/portfolio/projects/strikematch.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="StrikeMatch — Artem Khaiet" />
+  <meta name="twitter:description" content="Full-stack data pipeline that correlates NASA FIRMS satellite fire detections with ACLED conflict events to surface confirmed strike activity, built with Python, PySpark, Databricks, and a live Leaflet dashboard." />
+</head>
+<body class="project-page">
+
+<nav id="main-nav"></nav>
+
+<div class="project-hero">
+  <div class="project-breadcrumb">
+    <a href="../index.html">Portfolio</a>
+    <span>/</span>
+    <span>StrikeMatch</span>
+  </div>
+  <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;color:var(--text-dim);">02</span>
+  <h1>StrikeMatch</h1>
+  <p class="lead">End-to-end data engineering pipeline ingesting satellite thermal anomalies and conflict events, processing them through a multi-layer Delta Lake architecture on Databricks with PySpark, and serving correlated strike detections to an interactive Leaflet dashboard via GitHub Actions-automated daily exports.</p>
+  <div class="project-meta-row">
+    <div class="meta-item">
+      <div class="meta-label">Organization</div>
+      <div class="meta-value">Personal Project</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Category</div>
+      <div class="meta-value">Data Engineering</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Tags</div>
+      <div class="meta-tags"><span class="card-tag" style="border-radius:999px;">Python</span><span class="card-tag" style="border-radius:999px;">Web</span><span class="card-tag" style="border-radius:999px;">Databases</span><span class="card-tag" style="border-radius:999px;">ETL/ELT</span><span class="card-tag" style="border-radius:999px;">Visualization</span><span class="card-tag" style="border-radius:999px;">Geospatial</span><span class="card-tag" style="border-radius:999px;">SQL</span><span class="card-tag" style="border-radius:999px;">Cloud</span><span class="card-tag" style="border-radius:999px;">Deployed</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="project-body">
+  <div class="project-content">
+    <h2>Background</h2>
+    <p>After repeatedly encountering Apache Spark, Apache Airflow, and Databricks in internship interviews, I wanted to gain hands-on experience with the modern data engineering stack by building something beyond a tutorial project. Around the same time, I became interested in how public satellite data is used to monitor real-world events, and recent geopolitical conflicts in Ukraine and the Middle East provided a compelling real-world case study. This project also gave me the opportunity to incorporate Claude Code into my workflow, using it to accelerate development while ensuring I developed a solid understanding of each technology along the way.</p>
+
+    <h2>Objective</h2>
+    <p>Build an automated pipeline that ingests NASA FIRMS satellite fire detections and ACLED conflict event records, correlates them spatially and temporally, and surfaces confirmed matches on an interactive map. Use a custom 5-factor scoring algorithm that weighs fire radiative power, detection confidence, source credibility, distance, and timing to rank each fire-event pair. Gain exposure to the Databricks ecosystem and modern data engineering practices.</p>
+
+    <h2>Outcome</h2>
+    <p>A live, deployed pipeline running daily via GitHub Actions, processing data through a bronze-silver-gold Delta Lake architecture on Databricks using PySpark. Results are exported automatically and served on an interactive Leaflet dashboard hosted via GitHub Pages. During development, the project went through several iterations using Apache Airflow for orchestration, Power BI for serving the gold layer, and Streamlit + pydeck for early dashboard prototyping.</p>
+
+    <h2>Screenshots <span style="font-family:var(--mono);font-size:0.75rem;font-weight:400;color:var(--text-dim);margin-left:0.5rem;">— click to enlarge</span></h2>
+    <div id="gallery" style="position:relative;">
+      <div id="gallery-track" style="overflow:hidden;">
+        <div id="gallery-slides">
+          <figure class="gallery-slide">
+            <img src="assets/strikematch/Full-Dashboard.png" alt="Full Dashboard" />
+            <figcaption>Full Dashboard — global interactive map of confirmed satellite fire detections matched to reported strike events, updated daily.</figcaption>
+          </figure>
+          <figure class="gallery-slide">
+            <img src="assets/strikematch/Popup.png" alt="Tooltip popup" />
+            <figcaption>Tooltip Popup — matched event details such as description, correlation score, distance, fire radiative power, and sources.</figcaption>
+          </figure>
+          <figure class="gallery-slide">
+            <img src="assets/strikematch/Power-BI.png" alt="Power BI map" />
+            <figcaption>Power BI Map — early iteration of the serving layer, connected directly to the Databricks gold Delta table.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:0.75rem;">
+        <button onclick="galleryNav(-1)" class="gallery-btn">← Prev</button>
+        <span id="gallery-counter" style="font-family:var(--mono);font-size:0.72rem;color:var(--text-dim);"></span>
+        <button onclick="galleryNav(1)" class="gallery-btn">Next →</button>
+      </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+
+    <script>
+      let current = 0;
+      const slides = document.querySelectorAll('.gallery-slide');
+      const counter = document.getElementById('gallery-counter');
+      function showSlide(n) {
+        slides.forEach(s => s.style.display = 'none');
+        current = (n + slides.length) % slides.length;
+        slides[current].style.display = 'block';
+        counter.textContent = (current + 1) + ' / ' + slides.length;
+      }
+      function galleryNav(dir) { showSlide(current + dir); }
+      document.querySelectorAll('.gallery-slide img').forEach(img => {
+        img.onclick = () => {
+          document.getElementById('lightbox-img').src = img.src;
+          document.getElementById('lightbox').classList.add('active');
+        };
+      });
+      showSlide(0);
+    </script>
+  </div>
+
+  <div class="project-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">Concepts &amp; Skills</div>
+      <div class="skill-list">
+        <div class="skill-item">Medallion architecture (bronze / silver / gold)</div><div class="skill-item">Geospatial joining using Haversine distance and bounding-box filtering</div><div class="skill-item">Pipeline orchestration and scheduling</div><div class="skill-item">Geospatial visualization</div><div class="skill-item">API data ingestion (NASA FIRMS, ACLED)</div><div class="skill-item">CI/CD</div><div class="skill-item">AI-assisted development</div><div class="skill-item">Data quality validation</div><div class="skill-item">Distributed data transformation</div>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-title">Tools Used</div>
+      <div class="tool-list">
+        <span class="tool-pill">Python</span><span class="tool-pill">PySpark</span><span class="tool-pill">Databricks</span><span class="tool-pill">Delta Lake</span><span class="tool-pill">Apache Airflow</span><span class="tool-pill">SparkSQL</span><span class="tool-pill">GitHub Pages</span><span class="tool-pill">GitHub Actions</span><span class="tool-pill">NASA FIRMS API</span><span class="tool-pill">ACLED APIs</span><span class="tool-pill">Leaflet</span><span class="tool-pill">Power BI</span><span class="tool-pill">Streamlit</span><span class="tool-pill">Great Expectations</span><span class="tool-pill">Docker</span><span class="tool-pill">Claude Code (Puppeteer MCP, hooks, context management, tools)</span>
+      </div>
+    </div>
+    <div class="sidebar-card"><div class="sidebar-title">Links</div><div class="project-links"><a class="proj-link-btn" href="https://artkha1.github.io/StrikeMatch/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" stroke-linecap="round" stroke-linejoin="round"/></svg> Live Demo</a><a class="proj-link-btn" href="https://github.com/artkha1/StrikeMatch" target="_blank"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub</a></div></div>
+  </div>
+</div>
+
+<footer id="main-footer" style="max-width:none;margin-top:4rem;"></footer>
+
+<script src="../js/data.js"></script>
+<script>
+  buildNav();
+  buildFooter();
+</script>
+</body>
+</html>
