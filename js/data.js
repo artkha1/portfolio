@@ -89,7 +89,7 @@ function buildNav(activePage) {
   if (!nav) return;
   nav.innerHTML = `
     <a href="/portfolio/index.html" class="nav-logo">AK</a>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       <a href="/portfolio/index.html#projects">Projects</a>
       <a href="/portfolio/index.html#about">About</a>
       <a href="/portfolio/resume.pdf" target="_blank" rel="noopener">Resume</a>
@@ -98,7 +98,20 @@ function buildNav(activePage) {
       <a href="https://github.com/artkha1" target="_blank" title="GitHub">${ICONS.github}</a>
       <a href="https://www.linkedin.com/in/artem-khaiet/" target="_blank" title="LinkedIn">${ICONS.linkedin}</a>
     </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+    </button>
   `;
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
 }
 
 // ── Build footer ──
